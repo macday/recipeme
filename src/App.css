@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,33 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+:root {
+  --background: #3feee6;
+  --red: #fc4445;
+  --dark: #55bcc9;
+  --neutral: #97caef;
+  --light: #cafafe;
+}
+
+@keyframes Fade-In {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* .Title {
+    animation: Fade-In 1s ease-out;
+  } */
+
+  /* .row {
+    animation: Fade-In 1s ease-out 1s;
+  } */
 }
