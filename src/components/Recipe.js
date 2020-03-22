@@ -7,6 +7,7 @@ export default function Recipe(props) {
             <hr />
             <div className='row'>
                 <div className='col ingredients-section'>
+                    <h3>Ingredients</h3>
                     <ul className='list-group'>
                         {
                             Object.keys(props.ingredients).map(key => 
@@ -16,6 +17,7 @@ export default function Recipe(props) {
                     </ul>
                 </div>
                 <div className='col'>
+                    <h3>Instructions</h3>
                     <ul className='list-group'>
                         {
                             Object.keys(props.instructions).map(key => 

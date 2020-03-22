@@ -1,47 +1,30 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Recipe from './Recipe'
-// import axios from 'axios'
-// import cheerio from 'cheerio'
 import './../styles/Scraper.css'
 
 const axios = require("axios")
 const cheerio = require("cheerio")
 
-// const express = require('express')
-
-// const app = express()
-
-// // Defining CORS
-// app.use(function(req, res, next) {
-//     res.setHeader(
-//       "Access-Control-Allow-Headers",
-//       "X-Requested-With,content-type"
-//     );
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.setHeader(
-//       "Access-Control-Allow-Methods",
-//       "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-//     );
-//     res.setHeader("Access-Control-Allow-Credentials", true);
-//     next();
-// });
-
 export default class Scraper extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            site: this.props.site,
+            tags: this.props.tags
+        }
+        this.scraperFunc = this.scraperFunc.bind(this)
     }
 
     async scraperFunc() {
         //store URL to site as constant
         const siteURL = document.getElementById('recipe-link').value
-        // alert(`Sraper Function Running on: ${siteURL}`)
     
         //wait on access request and load html into cheerio
         const html = await axios.get(siteURL);
         const $ = await cheerio.load(html.data)
         // name of the recipe
-        let name = $('.heading__title').text()
+        let name = $(this.state.tags.header).text()
         // array to store ingredients in
         // let ingredients = []
         let ingredients = {}
@@ -50,7 +33,7 @@ export default class Scraper extends Component {
         let steps = {}
       
         // scrape website for ingredients
-        $('.ingredient, .ingredients li, .wprm-recipe-ingredient, .wpurp-recipe-ingredient').each((i, elem) => {
+        $(this.state.tags.ingredient).each((i, elem) => {
             // ingredients.push({
             //   ingredient: $(elem).text()
             // })
@@ -58,7 +41,7 @@ export default class Scraper extends Component {
         })
       
         // scrape website for instructions
-        $('.section--instructions ol li p, directions li, .instructions li').each((i, elem) => {
+        $(this.state.tags.instruction).each((i, elem) => {
             // steps.push({
             //   num: i+1,
             //   step: $(elem).text()
