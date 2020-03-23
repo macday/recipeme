@@ -4,6 +4,7 @@ import './App.css'
 import Button from './components/Button'
 import Options from './components/Options'
 import Fadein from 'react-fade-in'
+import RecipeLoader from './components/RecipeLoader'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends React.Component {
       ReactDOM.render(<Options />, document.getElementById('grabber-adder'))
     }
     if (elemID === 'adder') {
-      ReactDOM.render(<Options />, document.getElementById('grabber-adder'))
+      ReactDOM.render(<RecipeLoader />, document.getElementById('grabber-adder'))
     }
   }
 
@@ -27,9 +28,9 @@ class App extends React.Component {
     return (
       <div className='App px-5 py-3'>
         <body
-          className='container-fluid py-3 d-flex flex-column justify-content-center align-items-center rounded-lg border border-info'
+          className='container-lg py-3 d-flex flex-column justify-content-center align-items-center rounded-lg border border-info'
         >
-          <h1 className='Title font-italic font-weight-light font-underline'>
+          <h1 className='font-italic font-weight-light font-underline'>
             <u>
               <Fadein transitionDuration="750" >RecipeMe</Fadein>
             </u>
@@ -53,8 +54,8 @@ class App extends React.Component {
             </div>
           </div>
         </body>
-        <section className='invisibile'
-          className='container-fluid d-flex flex-column justify-content-center align-items-start rounded-lg border border-info my-5 p-4 bg-white'>
+        <section
+          className='container-lg d-flex flex-column justify-content-center align-items-start rounded-lg border border-info my-5 p-4 bg-white'>
           <h1 className='font-weight-light font-italic border-bottom border-info'>
             My Recipes
           </h1>

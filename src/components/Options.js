@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Image from 'react-bootstrap/Image'
 import Fadein from 'react-fade-in'
 import Scraper from './Scraper'
+import './../styles/Options.css'
 
 export default class Options extends Component {
     constructor(props) {
@@ -53,7 +54,6 @@ export default class Options extends Component {
                 }
                 break
                 case 'chow':
-                    // needs fixing
                     tags = {
                         header: '.fr_r_info > h1',
                         ingredient: '.col .gu3 li',
@@ -101,7 +101,7 @@ export default class Options extends Component {
     render() {
         return (
             <div>
-                <Fadein className='container-fluid d-flex flex-row flex-wrap justify-content-between align-items-center'>
+                <Fadein className='container-fluid d-flex flex-row flex-wrap justify-content-around align-items-center'>
                     <button onClick={() => this.handleClick('allrecipes')} className='btn p-0 m-3' id='AllRecipes'>
                         <Image src={require('./../images/allrecipes.png')} fluid />
                     </button>
