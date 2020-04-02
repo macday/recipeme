@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <div className='App px-5 py-3'>
         <body
-          className='container-lg py-3 d-flex flex-column justify-content-center align-items-center rounded-lg border border-info'
+          className='container-lg py-3 d-flex flex-column justify-content-center align-items-center rounded-lg border border-info overflow-auto'
         >
           <h1 className='font-italic font-weight-light font-underline'>
             <u>
@@ -56,12 +56,12 @@ class App extends React.Component {
         </body>
         <section
           className='container-lg d-flex flex-column justify-content-center align-items-start rounded-lg border border-info my-5 p-4 bg-white'>
-          <h1 className='font-weight-light font-italic border-bottom border-info'>
-            My Recipes
+          {/* <h1 className='font-weight-light font-italic border-bottom border-info'>
+            Recipe
           </h1>
           <p className='text-muted font-italic m-0 p-0'>
             {"You currently do not have any recipes" ? this.state.recipeList.empty : ""}
-          </p>
+          </p> */}
           <ul id='recipes' className='container'>
             {/* {
                   Object.keys(props.ingredients).map(key => 
